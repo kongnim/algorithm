@@ -8,11 +8,7 @@ class Solution {
                 break;
             }
             
-            if (bill[0] >= bill[1]) {
-                bill[0] = bill[0]/2;
-            } else {
-                bill[1] = bill[1]/2;
-            }
+            bill[bill[0] >= bill[1] ? 0 : 1] /= 2;
             answer++;            
         }
         
