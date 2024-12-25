@@ -2,30 +2,34 @@ class Solution {
     public int solution(String s) {
         int answer = 0;
         
-        Character x = null;
-        int[][] count = new int[2][1];
+        char x = ' ';
+        int countX = 0;
+        int countY = 0;
         
         for (int i = 0; i < s.length(); i++) {
-            Character ch = s.charAt(i);
+            char ch = s.charAt(i);
             
-            if (x == null) {
+            if (x == ' ') {
                 x = ch;
             }
             
             if (x == ch) {
-                count[0][0]++;
+                countX++;
             } else {
-                count[1][0]++;
+                countY++;
             }
             
-            if (count[0][0] == count[1][0]) {
+            if (countX == countY) {
                 answer++;
-                x = null;
-                count = new int[2][1];
-            } else if (i == s.length() - 1) {
-                answer++;
+                x = ' ';
+                countX = 0;
+                countY = 0;
+                
             }
-            
+        }
+        
+        if (countX != 0) {
+            answer++;
         }
         
         return answer;
